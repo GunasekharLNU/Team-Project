@@ -1,0 +1,537 @@
+---------------------------------ASSETS----------------------------------------------
+
+For Post 
+http://localhost:8080/assets-service/api/assets
+Body:	{
+    "name":"Rig Alpha",
+    "type":"RIG",
+    "location": "Hyderabad",
+    "status": "REGISTERED"
+}
+
+Return:	{
+    "assetId": 1,
+    "name": "Rig Alpha",
+    "type": "RIG",
+    "location": "Hyderabad",
+    "status": "REGISTERED"
+}
+
+For Get All
+http://localhost:8080/assets-service/api/assets
+Return:	[
+    {
+        "assetId": 1,
+        "name": "Rig Alpha",
+        "type": "RIG",
+        "location": "Hyderabad",
+        "status": "REGISTERED"
+    }
+]
+
+For Get By ID
+http://localhost:8080/assets-service/api/assets/1
+Return:	{
+    "assetId": 1,
+    "name": "Rig Alpha",
+    "type": "RIG",
+    "location": "Hyderabad",
+    "status": "REGISTERED"
+}
+
+For Put By ID
+http://localhost:8080/assets-service/api/assets/1
+Body:	{
+    "id":1,
+    "name":"Rig Alpha Hyderabad",
+    "type":"RIG",
+    "location": "Pune",
+    "status": "REGISTERED"
+}
+
+Return:	{
+    "assetId": 1,
+    "name": "Rig Alpha Hyderabad",
+    "type": "RIG",
+    "location": "Pune",
+    "status": "REGISTERED"
+}
+
+For Delete By ID
+http://localhost:8080/assets-service/api/assets/2
+Return:	No Return Status OK
+
+For Checking existence by ID
+http://localhost:8080/assets-service/api/assets/exists/2
+Return:	false
+http://localhost:8080/assets-service/api/assets/exists/1
+Return:	true
+
+--------------------------------------PRODUCTION--------------------------------------------
+
+---------------For ProductionPlan----------------------
+
+For Post
+http://localhost:8080/production-service/api/production/plans
+Body:	{
+    "assetId":1,
+    "plannedVolume":5000,
+    "startDate": "2023-04-01",
+    "endDate":"2023-04-30"
+}
+Return:	{
+    "planId": 1,
+    "assetId": 1,
+    "plannedVolume": 5000.0,
+    "startDate": "2023-04-01",
+    "endDate": "2023-04-30",
+    "assetDetails": {
+        "assetId": 1,
+        "name": "Rig Alpha Hyderabad",
+        "status": "REGISTERED"
+    }
+}
+
+For Get All
+http://localhost:8080/production-service/api/production/plans
+Return:	[
+    {
+        "planId": 1,
+        "assetId": 1,
+        "plannedVolume": 5000.0,
+        "startDate": "2023-04-01",
+        "endDate": "2023-04-30",
+        "assetDetails": {
+            "assetId": 1,
+            "name": "Rig Alpha Hyderabad",
+            "status": "REGISTERED"
+        }
+    }
+]
+
+For Get by ID
+http://localhost:8080/production-service/api/production/plans/1
+Return:	{
+    "planId": 1,
+    "assetId": 1,
+    "plannedVolume": 5000.0,
+    "startDate": "2023-04-01",
+    "endDate": "2023-04-30",
+    "assetDetails": {
+        "assetId": 1,
+        "name": "Rig Alpha Hyderabad",
+        "status": "REGISTERED"
+    }
+}
+
+For Put by ID
+http://localhost:8080/production-service/api/production/plans/1
+Body:	{
+    "id":1,
+    "assetId":1,
+    "plannedVolume":10000,
+    "startDate": "2023-04-01",
+    "endDate":"2023-05-15"
+}
+Return:	{
+    "planId": 1,
+    "assetId": 1,
+    "plannedVolume": 10000.0,
+    "startDate": "2023-04-01",
+    "endDate": "2023-05-15",
+    "assetDetails": {
+        "assetId": 1,
+        "name": "Rig Alpha Hyderabad",
+        "status": "REGISTERED"
+    }
+}
+
+For Testing Assets
+http://localhost:8080/production-service/api/production/plans/test-assets
+Return:	Asset Feign Client working
+
+------------------ProductionRecord---------------------------------
+
+For Post
+http://localhost:8080/production-service/api/production/records
+Body:	{
+    "planId":1,
+    "actualVolume":6000,
+    "date":"2023-04-01"
+}
+Return:	{
+    "recordId": 1,
+    "planId": 1,
+    "assetId": 1,
+    "actualVolume": 6000.0,
+    "date": "2023-04-01",
+    "assetDetails": {
+        "assetId": 1,
+        "name": "Rig Alpha Hyderabad",
+        "status": "REGISTERED"
+    }
+}
+
+For Get All
+http://localhost:8080/production-service/api/production/records
+Return:	[
+    {
+        "recordId": 1,
+        "planId": 1,
+        "assetId": 1,
+        "actualVolume": 6000.0,
+        "date": "2023-04-01",
+        "assetDetails": {
+            "assetId": 1,
+            "name": "Rig Alpha Hyderabad",
+            "status": "REGISTERED"
+        }
+    }
+]
+
+For Get by ID
+http://localhost:8080/production-service/api/production/records/1
+Return:	{
+    "recordId": 1,
+    "planId": 1,
+    "assetId": 1,
+    "actualVolume": 6000.0,
+    "date": "2023-04-01",
+    "assetDetails": {
+        "assetId": 1,
+        "name": "Rig Alpha Hyderabad",
+        "status": "REGISTERED"
+    }
+}
+
+For Put by ID
+http://localhost:8080/production-service/api/production/records/1
+Body:    {
+        "id":1,
+        "planId":1,
+        "actualVolume":6500,
+        "date":"2023-04-15"
+    }
+Return:	{
+    "recordId": 1,
+    "planId": 1,
+    "assetId": 1,
+    "actualVolume": 6500.0,
+    "date": "2023-04-15",
+    "assetDetails": {
+        "assetId": 1,
+        "name": "Rig Alpha Hyderabad",
+        "status": "REGISTERED"
+    }
+}
+
+For Get by PlanId
+http://localhost:8080/production-service/api/production/records/plan/1
+Return:	[
+    {
+        "recordId": 1,
+        "planId": 1,
+        "assetId": 1,
+        "actualVolume": 6500.0,
+        "date": "2023-04-15",
+        "assetDetails": {
+            "assetId": 1,
+            "name": "Rig Alpha Hyderabad",
+            "status": "REGISTERED"
+        }
+    }
+]
+
+------------------------------------------MAINTENANCE-----------------------------------------------
+
+For Post
+http://localhost:8080/maintenance-service/api/maintenance/work-orders
+Body:	{
+    "assetId": 1,
+    "description": "Maintenance work for Rig Alpha Hyderabad",
+    "scheduledDate":"2023-04-15",
+    "maintenanceType":"PREVENTIVE",
+    "priority": "HIGH",
+    "technicianName":"Harshith Surya"
+}
+Return:	{
+    "workOrderId": 1,
+    "assetId": 1,
+    "assetName": "Rig Alpha Hyderabad",
+    "description": "Maintenance work for Rig Alpha Hyderabad",
+    "maintenanceType": "PREVENTIVE",
+    "scheduledDate": "2023-04-15",
+    "expectedCompletionDate": null,
+    "actualCompletionDate": null,
+    "priority": "HIGH",
+    "status": "SCHEDULED",
+    "technicianName": "Harshith Surya"
+}
+
+
+For Patch
+http://localhost:8080/maintenance-service/api/maintenance/work-orders/1/update-progress
+Body:	{
+    "status": "SCHEDULED",
+    "expectedCompletionDate": "2026-02-16"
+}
+Return:	{
+    "workOrderId": 1,
+    "assetId": 1,
+    "assetName": "Rig Alpha Hyderabad",
+    "description": "Maintenance work for Rig Alpha Hyderabad",
+    "maintenanceType": "PREVENTIVE",
+    "scheduledDate": "2023-04-15",
+    "expectedCompletionDate": "2026-02-16",
+    "actualCompletionDate": "2026-02-10",
+    "priority": "HIGH",
+    "status": "SCHEDULED",
+    "technicianName": "Harshith Surya"
+}
+
+
+For Get
+http://localhost:8080/maintenance-service/api/maintenance/work-orders
+Return:	[
+    {
+        "workOrderId": 1,
+        "assetId": 1,
+        "assetName": "Rig Alpha Hyderabad",
+        "description": "Maintenance work for Rig Alpha Hyderabad",
+        "maintenanceType": "PREVENTIVE",
+        "scheduledDate": "2023-04-15",
+        "expectedCompletionDate": null,
+        "actualCompletionDate": null,
+        "priority": "HIGH",
+        "status": "SCHEDULED",
+        "technicianName": "Harshith Surya"
+    }
+]
+
+--------------------------------COMPLIANCE-------------------------------------------
+
+-------------------ComplianceReport-------------------------
+
+For Post
+http://localhost:8080/compliance-service/api/compliance/reports
+Body:	{
+    "assetId": 1,
+    "assetName": "Rig Alpha Hyderabad",
+    "reportType": "SAFETY_COMPLIANCE",
+    "safetyScore": 92,
+    "complianceStatus": "PENDING_REVIEW",
+    "inspector": "Alex Rivera",
+    "nextAuditDate": "2026-08-15",
+    "generatedDate": "2026-02-09"
+}
+Return:	{
+    "reportId": 1,
+    "assetId": 1,
+    "assetName": "Rig Alpha Hyderabad",
+    "reportType": "SAFETY_COMPLIANCE",
+    "safetyScore": 92,
+    "complianceStatus": "PENDING_REVIEW",
+    "inspector": "Alex Rivera",
+    "nextAuditDate": "2026-08-15",
+    "generatedDate": "2026-02-09",
+    "lastUpdatedDate": "2026-02-09T12:53:18.2252685"
+}
+
+For Get All
+http://localhost:8080/compliance-service/api/compliance/reports
+Return:	[
+    {
+        "reportId": 1,
+        "assetId": 1,
+        "assetName": "Rig Alpha Hyderabad",
+        "reportType": "SAFETY_COMPLIANCE",
+        "safetyScore": 92,
+        "complianceStatus": "PENDING_REVIEW",
+        "inspector": "Alex Rivera",
+        "nextAuditDate": "2026-08-15",
+        "generatedDate": "2026-02-09",
+        "lastUpdatedDate": "2026-02-09T12:53:18.225269"
+    }
+]
+
+For Get by ID
+http://localhost:8080/compliance-service/api/compliance/reports/1
+Return:	{
+    "reportId": 1,
+    "assetId": 1,
+    "assetName": "Rig Alpha Hyderabad",
+    "reportType": "SAFETY_COMPLIANCE",
+    "safetyScore": 92,
+    "complianceStatus": "PENDING_REVIEW",
+    "inspector": "Alex Rivera",
+    "nextAuditDate": "2026-08-15",
+    "generatedDate": "2026-02-09",
+    "lastUpdatedDate": "2026-02-09T12:53:18.225269"
+}
+
+For Put by ID
+http://localhost:8080/compliance-service/api/compliance/reports/1
+Body:	{
+    "id":1,
+    "assetId": 1,
+    "assetName": "Rig Alpha Hyderabad",
+    "reportType": "SAFETY_COMPLIANCE",
+    "safetyScore": 97,
+    "complianceStatus": "COMPLIANT",
+    "inspector": "Guna Sekhar",
+    "nextAuditDate": "2026-08-15",
+    "generatedDate": "2026-02-09"
+}
+Return:	{
+    "reportId": 1,
+    "assetId": 1,
+    "assetName": "Rig Alpha Hyderabad",
+    "reportType": "SAFETY_COMPLIANCE",
+    "safetyScore": 97,
+    "complianceStatus": "COMPLIANT",
+    "inspector": "Guna Sekhar",
+    "nextAuditDate": "2026-08-15",
+    "generatedDate": "2026-02-09",
+    "lastUpdatedDate": "2026-02-09T14:09:51.6175038"
+}
+
+For Delete by ID
+http://localhost:8080/compliance-service/api/compliance/reports/2
+Return:	It will delete by giving Response OK
+---------------------------Audit-------------------------------
+
+For Get by All
+http://localhost:8080/compliance-service/api/compliance/audit-log
+Return:	[
+    {
+        "id": 1,
+        "complianceReport": {
+            "reportId": 1
+        },
+        "reportIdDisplay": 1,
+        "action": "CREATE",
+        "oldValue": "NONE",
+        "newValue": "Status: PENDING_REVIEW, Score: 92",
+        "user": "Alex Rivera",
+        "timestamp": "09/02/2026, 12:53:18"
+    },
+    {
+        "id": 2,
+        "complianceReport": {
+            "reportId": 1
+        },
+        "reportIdDisplay": 1,
+        "action": "UPDATE",
+        "oldValue": "Status: PENDING_REVIEW, Score: 92",
+        "newValue": "Status: COMPLIANT, Score: 97",
+        "user": "Guna Sekhar",
+        "timestamp": "09/02/2026, 14:09:51"
+    },
+    {
+        "id": 3,
+        "complianceReport": null,
+        "reportIdDisplay": 2,
+        "action": "CREATE",
+        "oldValue": "NONE",
+        "newValue": "Status: NON_COMPLIANT, Score: 78",
+        "user": "Ujjwal Aglawe",
+        "timestamp": "09/02/2026, 14:12:24"
+    },
+    {
+        "id": 4,
+        "complianceReport": null,
+        "reportIdDisplay": 2,
+        "action": "DELETE",
+        "oldValue": "Status: NON_COMPLIANT, Score: 78",
+        "newValue": "NONE",
+        "user": "Ujjwal Aglawe",
+        "timestamp": "09/02/2026, 14:12:43"
+    }
+]
+
+For Delete All
+http://localhost:8080/compliance-service/api/compliance/audit-log
+Return:	It will delete by giving Response OK
+
+----------------------------AUTH-----------------------------------
+
+For Post for Registering
+http://localhost:8080/auth-service/auth/register
+Body:	{
+    "name": "Guna Sekhar",
+    "email": "guna59129@gmail.com",
+    "password": "Guna@12345",
+    "role": "admin"
+}
+Return:	User registered successfully
+
+For Post for Login
+http://localhost:8080/auth-service/auth/login
+Body:	{
+    "email": "guna59129@gmail.com",
+    "password": "Guna@12345",
+    "role": "admin"
+}
+Return:	{
+    "role": "admin",
+    "name": "Guna Sekhar",
+    "message": "Login Successful",
+    "email": "guna59129@gmail.com"
+}
+
+For Post for forgot-password
+http://localhost:8080/auth-service/auth/forgot-password
+Body:	{
+    "email": "guna59129@gmail.com"
+}
+Return:	OTP generated (Check Console)
+
+For Put for reset-password
+http://localhost:8080/auth-service/auth/reset-password
+Body:	{
+    "email": "guna59129@gmail.com",
+    "otp":"532504",
+    "newPassword":"Guna"
+}
+Return:	Password reset successfully
+
+For Get for manager details
+http://localhost:8080/auth-service/auth/getmanagerdetails
+Return:	[
+    {
+        "id": 2,
+        "email": "guna599@gmail.com",
+        "name": "Guna"
+    }
+]
+
+
+For Get for admin details
+http://localhost:8080/auth-service/auth/getadmindetails
+Return:	[
+    {
+        "id": 1,
+        "email": "guna59129@gmail.com",
+        "name": "Guna Sekhar"
+    },
+    {
+        "id": 3,
+        "email": "gun9@gmail.com",
+        "name": "styjk"
+    }
+]
+
+For Get based on role
+http://localhost:8080/auth-service/auth/details
+Body:	{
+    "role": "manager"
+}
+Return:	[
+    {
+        "id": 2,
+        "email": "guna599@gmail.com",
+        "name": "Guna"
+    }
+]
+
+
