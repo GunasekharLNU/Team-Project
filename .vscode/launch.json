@@ -1,0 +1,59 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ComplianceApplication",
+            "request": "launch",
+            "mainClass": "com.example.compliance.ComplianceApplication",
+            "projectName": "compliance"
+        },
+        {
+            "type": "java",
+            "name": "MaintenanceApplication",
+            "request": "launch",
+            "mainClass": "com.example.maintenance.MaintenanceApplication",
+            "projectName": "maintenance"
+        },
+        {
+            "type": "java",
+            "name": "ProductionApplication",
+            "request": "launch",
+            "mainClass": "com.example.production.ProductionApplication",
+            "projectName": "production"
+        },
+        {
+            "type": "java",
+            "name": "ApigatewayApplication",
+            "request": "launch",
+            "mainClass": "com.example.apigateway.ApigatewayApplication",
+            "projectName": "apigateway"
+        },
+        {
+            "type": "java",
+            "name": "EurekaDiscoverySpaceApplication",
+            "request": "launch",
+            "mainClass": "com.example.eureka_discovery_space.EurekaDiscoverySpaceApplication",
+            "projectName": "eureka-discovery-space"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AssetsApplication<assets>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.assets.AssetsApplication",
+            "projectName": "assets",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AuthApplication<auth>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.auth.AuthApplication",
+            "projectName": "auth",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

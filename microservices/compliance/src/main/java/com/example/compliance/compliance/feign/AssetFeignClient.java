@@ -5,9 +5,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.example.compliance.compliance.dto.AssetDTO;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import java.util.List;
 
 @FeignClient(name = "ASSETS-SERVICE")
 public interface AssetFeignClient {
+
+    @GetMapping("/api/assets")
+    List<AssetDTO> getAllAssets();
 
     @GetMapping("/api/assets/exists/{id}")
     boolean assetExists(@PathVariable("id") Long id);
